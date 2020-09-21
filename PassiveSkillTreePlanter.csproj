@@ -83,11 +83,16 @@
     <Compile Include="SkillTreeJson\PoESkillTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SkillTreeJson\PoESkillTreeJsonDecoder.cs" />
+    <Compile Include="SkillTreeJson\PoESkillTreeNew.cs" />
+    <Compile Include="TreeConfig.cs" />
     <Compile Include="UrlDecoders\PathOfExileUrlDecoder.cs" />
     <Compile Include="UrlDecoders\PoePlannerUrlDecoder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="SkillTreeData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
