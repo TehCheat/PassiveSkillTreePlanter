@@ -41,6 +41,6 @@ namespace PassiveSkillTreePlanter
         public TreeConfig.SkillTreeData SelectedBuildCreating { get; set; } = new TreeConfig.SkillTreeData();
 
         public ToggleNode EnableEzTreeChanger { get; set; } = new ToggleNode(true);
-        public ToggleNode Enable { get; set; } = new ToggleNode(true);
+        public ToggleNode Enable { get; set; } = new ToggleNode(false);
     }
 }
