@@ -14,9 +14,10 @@ namespace PassiveSkillTreePlanter
         public static async Task<string> DownloadSkillTreeToFileAsync(string filePath)
         {
             var code = await new HttpClient().GetStringAsync(TreeAddress);
-            var regex = new Regex("var passiveSkillTreeData.*");
+            var start = "var passiveSkillTreeData = ";
+            var regex = new Regex($"{start}{{(?>[^{{}}]|(?<open>){{|(?<-open>)}})*}}(?(o)(?!))");
             var skillTreeObj = regex.Match(code).Value.Replace("\\/", "/");
-            skillTreeObj = skillTreeObj.Substring(27, skillTreeObj.Length - 27 - 1) + "";
+            skillTreeObj = skillTreeObj.Substring(start.Length, skillTreeObj.Length - start.Length);
             File.WriteAllText(filePath, skillTreeObj);
             return skillTreeObj;
         }

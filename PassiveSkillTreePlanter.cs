@@ -17,6 +17,9 @@ using Vector2 = System.Numerics.Vector2;
 
 namespace PassiveSkillTreePlanter
 {
+    using System.Threading.Tasks;
+
+
     public class PassiveSkillTreePlanter : BaseSettingsPlugin<PassiveSkillTreePlanterSettings>
     {
         public const string SkillTreeDataFile = "SkillTreeData.json";
@@ -47,7 +50,7 @@ namespace PassiveSkillTreePlanter
         public IntPtr TextEditCallback { get; set; }
         public static PassiveSkillTreePlanter Core { get; set; }
 
-        public override void OnLoad()
+        public override async void OnLoad()
         {
             Core = this;
             if (!Directory.Exists(SkillTreeUrlFilesDir))
@@ -63,6 +66,7 @@ namespace PassiveSkillTreePlanter
 
             //Read url
             ReadUrlFromSelectedUrl(Settings.SelectedURLFile);
+       
         }
         public override bool Initialise()
         {
@@ -791,7 +795,7 @@ namespace PassiveSkillTreePlanter
             return false;
         }
 
-        private async void DownloadTree()
+        private async Task DownloadTree()
         {
             var skillTreeDataPath = DirectoryFullName + @"\" + SkillTreeDataFile;
             await PassiveSkillTreeJson_Downloader.DownloadSkillTreeToFileAsync(skillTreeDataPath);

@@ -16,7 +16,7 @@ namespace PassiveSkillTreePlanter
         public double x { get; set; }
         public double y { get; set; }
         public Dictionary<int, bool> oo { get; set; }
-        public List<ushort> n { get; set; }
+        public List<ushort> n { get; set; } = new List<ushort>();
     }
 
     public class Main
