@@ -233,7 +233,6 @@ namespace PassiveSkillTreePlanter
             var currentStringBytes = Encoding.Default.GetBytes(currentValue);
             var buffer = new byte[maxLength];
             Array.Copy(currentStringBytes, buffer, Math.Min(currentStringBytes.Length, maxLength));
-            int cursor_pos = -1;
             int Callback(ImGuiInputTextCallbackData* data)
             {
                 int* p_cursor_pos = (int*)data->UserData;

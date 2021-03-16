@@ -50,7 +50,7 @@ namespace PassiveSkillTreePlanter
         public IntPtr TextEditCallback { get; set; }
         public static PassiveSkillTreePlanter Core { get; set; }
 
-        public override async void OnLoad()
+        public override void OnLoad()
         {
             Core = this;
             if (!Directory.Exists(SkillTreeUrlFilesDir))
